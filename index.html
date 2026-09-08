@@ -13,13 +13,17 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo (2).png" />
+    <link rel="apple-touch-icon" href="images/logo (2).png" />
+
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
     <!-- ========== NAVBAR ========== -->
     <header class="navbar">
-        <div class="logo">Med<span>Shop</span></div>
+        <div class="logo"><img src="logo (2).png" alt="Logo" /></div>
         <nav class="nav-links">
             <a href="#" data-page="home" class="nav-link active">Accueil</a>
             <a href="#" data-page="shop" class="nav-link">Boutique</a>
@@ -143,7 +147,7 @@
                         <!-- === CHAUSSURES (1 à 6) === -->
                         <div class="product-card" data-id="1" data-category="chaussures" data-price="389" data-discount="30" data-name="Nike Air Max 90 Futura">
                             
-                            <img src="images/C (1).jpg" alt="Nike Air Max 90 Futura" onclick="openModal(1)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="C (1).jpg" alt="Nike Air Max 90 Futura" onclick="openModal(1)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">chaussures</div>
                                 <div class="product-name" onclick="openModal(1)">Nike Air Max 90 Futura</div>
@@ -151,18 +155,14 @@
                                     <span class="product-price">272.30 TND</span>
                                     <span class="old-price">389.00 TND</span>
                                 </div>
-                                <select class="size-select" id="size_1">
-                                    <option value="XS">XS</option><option value="S" selected>S</option>
-                                    <option value="M">M</option><option value="L">L</option>
-                                    <option value="XL">XL</option><option value="XXL">XXL</option>
-                                </select>
+                                <select class="size-select" id="size_1"><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42" selected>42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option></select>
                                 <button class="add-to-cart" onclick="addToCart(1)"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
 
                         <div class="product-card" data-id="2" data-category="chaussures" data-price="459" data-discount="20" data-name="Adidas Yeezy Boost 350">
                             <span class="sale-tag">-20%</span>
-                            <img src="images/C (2).jpg" alt="Adidas Yeezy Boost 350" onclick="openModal(2)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="C (2).jpg" alt="Adidas Yeezy Boost 350" onclick="openModal(2)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">chaussures</div>
                                 <div class="product-name" onclick="openModal(2)">Adidas Yeezy Boost 350</div>
@@ -170,35 +170,27 @@
                                     <span class="product-price">367.20 TND</span>
                                     <span class="old-price">459.00 TND</span>
                                 </div>
-                                <select class="size-select" id="size_2">
-                                    <option value="XS">XS</option><option value="S" selected>S</option>
-                                    <option value="M">M</option><option value="L">L</option>
-                                    <option value="XL">XL</option><option value="XXL">XXL</option>
-                                </select>
+                                <select class="size-select" id="size_2"><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42" selected>42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option></select>
                                 <button class="add-to-cart" onclick="addToCart(2)"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
 
                         <div class="product-card" data-id="3" data-category="chaussures" data-price="279" data-discount="0" data-name="New Balance 550 Blanc">
-                            <img src="images/C (3).jpg" alt="New Balance 550 Blanc" onclick="openModal(3)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="C (3).jpg" alt="New Balance 550 Blanc" onclick="openModal(3)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">chaussures</div>
                                 <div class="product-name" onclick="openModal(3)">New Balance 550 Blanc</div>
                                 <div class="price-wrapper">
                                     <span class="product-price">279.00 TND</span>
                                 </div>
-                                <select class="size-select" id="size_3">
-                                    <option value="XS">XS</option><option value="S" selected>S</option>
-                                    <option value="M">M</option><option value="L">L</option>
-                                    <option value="XL">XL</option><option value="XXL">XXL</option>
-                                </select>
+                                <select class="size-select" id="size_3"><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42" selected>42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option></select>
                                 <button class="add-to-cart" onclick="addToCart(3)"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
 
                         <div class="product-card" data-id="4" data-category="chaussures" data-price="499" data-discount="15" data-name="Jordan 1 High OG">
                             <span class="sale-tag">-15%</span>
-                            <img src="images/C (10).jpg" alt="Jordan 1 High OG" onclick="openModal(4)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="C (10).jpg" alt="Jordan 1 High OG" onclick="openModal(4)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">chaussures</div>
                                 <div class="product-name" onclick="openModal(4)">Jordan 1 High OG</div>
@@ -206,18 +198,14 @@
                                     <span class="product-price">424.15 TND</span>
                                     <span class="old-price">499.00 TND</span>
                                 </div>
-                                <select class="size-select" id="size_4">
-                                    <option value="XS">XS</option><option value="S" selected>S</option>
-                                    <option value="M">M</option><option value="L">L</option>
-                                    <option value="XL">XL</option><option value="XXL">XXL</option>
-                                </select>
+                                <select class="size-select" id="size_4"><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42" selected>42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option></select>
                                 <button class="add-to-cart" onclick="addToCart(4)"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
 
                         <div class="product-card" data-id="5" data-category="chaussures" data-price="149" data-discount="10" data-name="Converse Chuck 70">
                             <span class="sale-tag">-10%</span>
-                            <img src="images/C (5).jpg" alt="Converse Chuck 70" onclick="openModal(5)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="C (5).jpg" alt="Converse Chuck 70" onclick="openModal(5)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">chaussures</div>
                                 <div class="product-name" onclick="openModal(5)">Converse Chuck 70</div>
@@ -225,11 +213,7 @@
                                     <span class="product-price">134.10 TND</span>
                                     <span class="old-price">149.00 TND</span>
                                 </div>
-                                <select class="size-select" id="size_5">
-                                    <option value="XS">XS</option><option value="S" selected>S</option>
-                                    <option value="M">M</option><option value="L">L</option>
-                                    <option value="XL">XL</option><option value="XXL">XXL</option>
-                                </select>
+                                <select class="size-select" id="size_5"><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42" selected>42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option></select>
                                 <button class="add-to-cart" onclick="addToCart(5)"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
@@ -237,7 +221,7 @@
                         
                         <div class="product-card" data-id="5" data-category="chaussures" data-price="149" data-discount="10" data-name="Converse Chuck 70">
                             <span class="sale-tag">-10%</span>
-                            <img src="images/C (6).jpg" alt="Converse Chuck 70" onclick="openModal(5)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="C (6).jpg" alt="Converse Chuck 70" onclick="openModal(5)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">chaussures</div>
                                 <div class="product-name" onclick="openModal(5)">Converse Chuck 70</div>
@@ -245,11 +229,7 @@
                                     <span class="product-price">134.10 TND</span>
                                     <span class="old-price">149.00 TND</span>
                                 </div>
-                                <select class="size-select" id="size_5">
-                                    <option value="XS">XS</option><option value="S" selected>S</option>
-                                    <option value="M">M</option><option value="L">L</option>
-                                    <option value="XL">XL</option><option value="XXL">XXL</option>
-                                </select>
+                                <select class="size-select" id="size_5"><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42" selected>42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option></select>
                                 <button class="add-to-cart" onclick="addToCart(5)"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
@@ -257,7 +237,7 @@
                         
                         <div class="product-card" data-id="5" data-category="chaussures" data-price="149" data-discount="10" data-name="Converse Chuck 70">
                             <span class="sale-tag">-10%</span>
-                            <img src="images/C (8).jpg" alt="Converse Chuck 70" onclick="openModal(5)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="C (8).jpg" alt="Converse Chuck 70" onclick="openModal(5)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">chaussures</div>
                                 <div class="product-name" onclick="openModal(5)">Converse Chuck 70</div>
@@ -265,28 +245,20 @@
                                     <span class="product-price">134.10 TND</span>
                                     <span class="old-price">149.00 TND</span>
                                 </div>
-                                <select class="size-select" id="size_5">
-                                    <option value="XS">XS</option><option value="S" selected>S</option>
-                                    <option value="M">M</option><option value="L">L</option>
-                                    <option value="XL">XL</option><option value="XXL">XXL</option>
-                                </select>
+                                <select class="size-select" id="size_5"><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42" selected>42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option></select>
                                 <button class="add-to-cart" onclick="addToCart(5)"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
 
                         <div class="product-card" data-id="6" data-category="chaussures" data-price="219" data-discount="0" data-name="Puma RS-X">
-                            <img src="images/C (9).jpg" alt="Puma RS-X" onclick="openModal(6)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="C (9).jpg" alt="Puma RS-X" onclick="openModal(6)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">chaussures</div>
                                 <div class="product-name" onclick="openModal(6)">Puma RS-X</div>
                                 <div class="price-wrapper">
                                     <span class="product-price">219.00 TND</span>
                                 </div>
-                                <select class="size-select" id="size_6">
-                                    <option value="XS">XS</option><option value="S" selected>S</option>
-                                    <option value="M">M</option><option value="L">L</option>
-                                    <option value="XL">XL</option><option value="XXL">XXL</option>
-                                </select>
+                                <select class="size-select" id="size_6"><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42" selected>42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option></select>
                                 <button class="add-to-cart" onclick="addToCart(6)"><i class="fas fa-plus"></i> Ajouter</button>
                             </div>
                         </div>
@@ -294,7 +266,7 @@
                         <!-- === HOMME (7 à 14) === -->
                         <div class="product-card" data-id="7" data-category="homme" data-price="159" data-discount="50" data-name="Hoodie Oversize Merveille">
                             <span class="sale-tag">-50%</span>
-                            <img src="images/A (25).jpg" alt="Hoodie Oversize Merveille" onclick="openModal(7)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (25).jpg" alt="Hoodie Oversize Merveille" onclick="openModal(7)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">homme</div>
                                 <div class="product-name" onclick="openModal(7)">Hoodie Oversize Merveille</div>
@@ -313,7 +285,7 @@
 
                         <div class="product-card" data-id="8" data-category="homme" data-price="69" data-discount="25" data-name="T-Shirt Graphique Street">
                             <span class="sale-tag">-25%</span>
-                            <img src="images/A (26).jpg" alt="T-Shirt Graphique Street" onclick="openModal(8)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (26).jpg" alt="T-Shirt Graphique Street" onclick="openModal(8)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">homme</div>
                                 <div class="product-name" onclick="openModal(8)">T-Shirt Graphique Street</div>
@@ -331,7 +303,7 @@
                         </div>
 
                         <div class="product-card" data-id="9" data-category="homme" data-price="189" data-discount="0" data-name="Veste en Jean Vintage">
-                            <img src="images/A (27).jpg" alt="Veste en Jean Vintage" onclick="openModal(9)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (27).jpg" alt="Veste en Jean Vintage" onclick="openModal(9)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">homme</div>
                                 <div class="product-name" onclick="openModal(9)">Veste en Jean Vintage</div>
@@ -349,7 +321,7 @@
 
                         <div class="product-card" data-id="10" data-category="homme" data-price="129" data-discount="35" data-name="Pull Col Roulé Noir">
                             <span class="sale-tag">-35%</span>
-                            <img src="images/A (28).jpg" alt="Pull Col Roulé Noir" onclick="openModal(10)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (28).jpg" alt="Pull Col Roulé Noir" onclick="openModal(10)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">homme</div>
                                 <div class="product-name" onclick="openModal(10)">Pull Col Roulé Noir</div>
@@ -368,7 +340,7 @@
 
                         <div class="product-card" data-id="11" data-category="homme" data-price="99" data-discount="20" data-name="Short Cargo Militaire">
                             <span class="sale-tag">-20%</span>
-                            <img src="images/A (29).jpg" alt="Short Cargo Militaire" onclick="openModal(11)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (29).jpg" alt="Short Cargo Militaire" onclick="openModal(11)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">homme</div>
                                 <div class="product-name" onclick="openModal(11)">Short Cargo Militaire</div>
@@ -386,7 +358,7 @@
                         </div>
 
                         <div class="product-card" data-id="12" data-category="homme" data-price="89" data-discount="0" data-name="Chemise Hawaïenne">
-                            <img src="images/A (30).jpg" alt="Chemise Hawaïenne" onclick="openModal(12)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (30).jpg" alt="Chemise Hawaïenne" onclick="openModal(12)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">homme</div>
                                 <div class="product-name" onclick="openModal(12)">Chemise Hawaïenne</div>
@@ -404,7 +376,7 @@
 
                         <div class="product-card" data-id="13" data-category="homme" data-price="259" data-discount="15" data-name="Blazer Tweed">
                             <span class="sale-tag">-15%</span>
-                            <img src="images/A (31).jpg" alt="Blazer Tweed" onclick="openModal(13)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (31).jpg" alt="Blazer Tweed" onclick="openModal(13)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">homme</div>
                                 <div class="product-name" onclick="openModal(13)">Blazer Tweed</div>
@@ -422,7 +394,7 @@
                         </div>
 
                         <div class="product-card" data-id="14" data-category="homme" data-price="119" data-discount="0" data-name="Pantalon Chino Beige">
-                            <img src="images/A (32).jpg" alt="Pantalon Chino Beige" onclick="openModal(14)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (32).jpg" alt="Pantalon Chino Beige" onclick="openModal(14)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">homme</div>
                                 <div class="product-name" onclick="openModal(14)">Pantalon Chino Beige</div>
@@ -441,7 +413,7 @@
                         <!-- === FEMME (15 à 22) === -->
                         <div class="product-card" data-id="15" data-category="femme" data-price="189" data-discount="20" data-name="Pantalon Cargo Noir">
                             <span class="sale-tag">-20%</span>
-                            <img src="images/A (2).jpg" alt="Pantalon Cargo Noir" onclick="openModal(15)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (2).jpg" alt="Pantalon Cargo Noir" onclick="openModal(15)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">femme</div>
                                 <div class="product-name" onclick="openModal(15)">Pantalon Cargo Noir</div>
@@ -459,7 +431,7 @@
                         </div>
 
                         <div class="product-card" data-id="16" data-category="femme" data-price="159" data-discount="0" data-name="Jean Taille Haute">
-                            <img src="images/A (3).jpg" alt="Jean Taille Haute" onclick="openModal(16)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (3).jpg" alt="Jean Taille Haute" onclick="openModal(16)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">femme</div>
                                 <div class="product-name" onclick="openModal(16)">Jean Taille Haute</div>
@@ -477,7 +449,7 @@
 
                         <div class="product-card" data-id="17" data-category="femme" data-price="349" data-discount="30" data-name="Ensemble Blazer + Pantalon">
                             <span class="sale-tag">-30%</span>
-                            <img src="images/A (5).jpg" alt="Ensemble Blazer + Pantalon" onclick="openModal(17)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (5).jpg" alt="Ensemble Blazer + Pantalon" onclick="openModal(17)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">femme</div>
                                 <div class="product-name" onclick="openModal(17)">Ensemble Blazer + Pantalon</div>
@@ -496,7 +468,7 @@
 
                         <div class="product-card" data-id="18" data-category="femme" data-price="229" data-discount="15" data-name="Robe Chemise Ceinturée">
                             <span class="sale-tag">-15%</span>
-                            <img src="images/A (7).jpg" alt="Robe Chemise Ceinturée" onclick="openModal(18)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (7).jpg" alt="Robe Chemise Ceinturée" onclick="openModal(18)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">femme</div>
                                 <div class="product-name" onclick="openModal(18)">Robe Chemise Ceinturée</div>
@@ -515,7 +487,7 @@
 
                         <div class="product-card" data-id="19" data-category="femme" data-price="199" data-discount="10" data-name="Jupe Crayon Cuir">
                             <span class="sale-tag">-10%</span>
-                            <img src="images/A ().jpg" alt="Jupe Crayon Cuir" onclick="openModal(19)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A ().jpg" alt="Jupe Crayon Cuir" onclick="openModal(19)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">femme</div>
                                 <div class="product-name" onclick="openModal(19)">Jupe Crayon Cuir</div>
@@ -534,7 +506,7 @@
 
                         <div class="product-card" data-id="20" data-category="femme" data-price="139" data-discount="25" data-name="Blouse Soie Léopard">
                             <span class="sale-tag">-25%</span>
-                            <img src="images/A (1).jpg" alt="Blouse Soie Léopard" onclick="openModal(20)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (1).jpg" alt="Blouse Soie Léopard" onclick="openModal(20)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">femme</div>
                                 <div class="product-name" onclick="openModal(20)">Blouse Soie Léopard</div>
@@ -552,7 +524,7 @@
                         </div>
 
                         <div class="product-card" data-id="21" data-category="femme" data-price="279" data-discount="0" data-name="Veste Tailleur Double">
-                            <img src="images/A (24).jpg" alt="Veste Tailleur Double" onclick="openModal(21)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (24).jpg" alt="Veste Tailleur Double" onclick="openModal(21)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">femme</div>
                                 <div class="product-name" onclick="openModal(21)">Veste Tailleur Double</div>
@@ -570,7 +542,7 @@
 
                         <div class="product-card" data-id="22" data-category="femme" data-price="219" data-discount="20" data-name="Salopette Jean Oversize">
                             <span class="sale-tag">-20%</span>
-                            <img src="images/A (21).jpg" alt="Salopette Jean Oversize" onclick="openModal(22)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="A (21).jpg" alt="Salopette Jean Oversize" onclick="openModal(22)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">femme</div>
                                 <div class="product-name" onclick="openModal(22)">Salopette Jean Oversize</div>
@@ -590,7 +562,7 @@
                         <!-- === ACCESSOIRES (23 à 31) === -->
                         <div class="product-card" data-id="23" data-category="accessoires" data-price="149" data-discount="15" data-name="Montre Connectée Or Noir">
                             <span class="sale-tag">-15%</span>
-                            <img src="images/B (1).jpg" alt="Montre Connectée Or Noir" onclick="openModal(23)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="B (1).jpg" alt="Montre Connectée Or Noir" onclick="openModal(23)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">accessoires</div>
                                 <div class="product-name" onclick="openModal(23)">Montre Connectée Or Noir</div>
@@ -609,7 +581,7 @@
 
                         <div class="product-card" data-id="24" data-category="accessoires" data-price="99" data-discount="40" data-name="Sac à Dos Urbain Cuir">
                             <span class="sale-tag">-40%</span>
-                            <img src="images/B (2).jpg" alt="Sac à Dos Urbain Cuir" onclick="openModal(24)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="B (2).jpg" alt="Sac à Dos Urbain Cuir" onclick="openModal(24)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">accessoires</div>
                                 <div class="product-name" onclick="openModal(24)">Sac à Dos Urbain Cuir</div>
@@ -627,7 +599,7 @@
                         </div>
 
                         <div class="product-card" data-id="25" data-category="accessoires" data-price="85" data-discount="0" data-name="Lunettes Carrées Titanium">
-                            <img src="images/B (3).jpg" alt="Lunettes Carrées Titanium" onclick="openModal(25)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="B (3).jpg" alt="Lunettes Carrées Titanium" onclick="openModal(25)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">accessoires</div>
                                 <div class="product-name" onclick="openModal(25)">Lunettes Carrées Titanium</div>
@@ -645,7 +617,7 @@
 
                         <div class="product-card" data-id="26" data-category="accessoires" data-price="49" data-discount="10" data-name="Casquette Vintage Merveille">
                             <span class="sale-tag">-10%</span>
-                            <img src="images/B (15).jpg" alt="Casquette Vintage Merveille" onclick="openModal(26)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="B (15).jpg" alt="Casquette Vintage Merveille" onclick="openModal(26)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">accessoires</div>
                                 <div class="product-name" onclick="openModal(26)">Casquette Vintage Merveille</div>
@@ -664,7 +636,7 @@
 
                         <div class="product-card" data-id="27" data-category="accessoires" data-price="99" data-discount="10" data-name="Sac Tote Cuir Beige">
                             <span class="sale-tag">-10%</span>
-                            <img src="images/B (5).jpg" alt="Sac Tote Cuir Beige" onclick="openModal(27)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="B (5).jpg" alt="Sac Tote Cuir Beige" onclick="openModal(27)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">accessoires</div>
                                 <div class="product-name" onclick="openModal(27)">Sac Tote Cuir Beige</div>
@@ -682,7 +654,7 @@
                         </div>
 
                         <div class="product-card" data-id="28" data-category="accessoires" data-price="49" data-discount="0" data-name="Ceinture Large Dorée">
-                            <img src="images/B (14).jpg" alt="Ceinture Large Dorée" onclick="openModal(28)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="B (14).jpg" alt="Ceinture Large Dorée" onclick="openModal(28)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">accessoires</div>
                                 <div class="product-name" onclick="openModal(28)">Ceinture Large Dorée</div>
@@ -699,7 +671,7 @@
                         </div>
 
                         <div class="product-card" data-id="29" data-category="accessoires" data-price="39" data-discount="0" data-name="Bonnet Cachemire">
-                            <img src="images/B (10).jpg" alt="Bonnet Cachemire" onclick="openModal(29)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="B (10).jpg" alt="Bonnet Cachemire" onclick="openModal(29)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">accessoires</div>
                                 <div class="product-name" onclick="openModal(29)">Bonnet Cachemire</div>
@@ -717,7 +689,7 @@
 
                         <div class="product-card" data-id="30" data-category="accessoires" data-price="19" data-discount="5" data-name="Chaussettes Design">
                             <span class="sale-tag">-5%</span>
-                            <img src="images/B (11).jpg" alt="Chaussettes Design" onclick="openModal(30)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="B (11).jpg" alt="Chaussettes Design" onclick="openModal(30)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">accessoires</div>
                                 <div class="product-name" onclick="openModal(30)">Chaussettes Design</div>
@@ -735,7 +707,7 @@
                         </div>
 
                         <div class="product-card" data-id="31" data-category="accessoires" data-price="29" data-discount="0" data-name="Porte-clés Luxury">
-                            <img src="images/B (12).jpg" alt="Porte-clés Luxury" onclick="openModal(31)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <img src="B (12).jpg" alt="Porte-clés Luxury" onclick="openModal(31)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
                             <div class="product-info">
                                 <div class="product-category">accessoires</div>
                                 <div class="product-name" onclick="openModal(31)">Porte-clés Luxury</div>
@@ -866,7 +838,7 @@
                 <div class="blog-card">
                     <div class="blog-video">
                         <img src="images/a(32).png" alt="Shooting été 2025" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://youtube.com/shorts/tDLN2xIs55E?si=LNi_m-hjjnoQHkgi" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">15 Juin 2025</span>
@@ -877,7 +849,7 @@
                 <div class="blog-card">
                     <div class="blog-video">
                         <img src="images/a(33).jpg" alt="MerveilleShop x Artiste Urbain" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://youtube.com/shorts/tDLN2xIs55E?si=LNi_m-hjjnoQHkgi" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">10 Juin 2025</span>
@@ -888,7 +860,7 @@
                 <div class="blog-card">
                     <div class="blog-video">
                         <img src="images/a(34).png" alt="Essentiels Automne 2025" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://youtube.com/shorts/tDLN2xIs55E?si=LNi_m-hjjnoQHkgi" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">5 Juin 2025</span>
@@ -899,7 +871,7 @@
                 <div class="blog-card">
                     <div class="blog-video">
                         <img src="images/a(35).jpg" alt="Médina de Tunis" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://youtube.com/shorts/tDLN2xIs55E?si=LNi_m-hjjnoQHkgi" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">28 Mai 2025</span>
@@ -910,7 +882,7 @@
                 <div class="blog-card">
                     <div class="blog-video">
                         <img src="images/a(36).png" alt="Accessoires Studio" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://youtube.com/shorts/tDLN2xIs55E?si=LNi_m-hjjnoQHkgi" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">20 Mai 2025</span>
@@ -921,7 +893,7 @@
                 <div class="blog-card">
                     <div class="blog-video">
                         <img src="images/a(37).jpg" alt="Shooting Plage" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://youtube.com/shorts/tDLN2xIs55E?si=LNi_m-hjjnoQHkgi" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">15 Mai 2025</span>
@@ -932,7 +904,7 @@
                 <div class="blog-card">
                     <div class="blog-video">
                         <img src="images/a(38).png" alt="Nouvelle Collection Hiver" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                        <iframe src="https://youtube.com/shorts/tDLN2xIs55E?si=LNi_m-hjjnoQHkgi" frameborder="0" allowfullscreen></iframe>
                     </div>
                     <div class="blog-content">
                         <span class="blog-date">28 Avril 2025</span>
@@ -995,18 +967,25 @@
     <footer id="footer">
         <div class="footer-container">
             <div class="footer-col">
-                <div class="logo">Merveille<span>Shop</span></div>
+                <div class="logo"><img src="logo (2).png" alt="Logo" /></div>
                 <p>Luxe & Élégance. Livraison dans toute la Tunisie.</p>
+                <div class="contact-info">
+                        <div class="contact-social">
+                            <h4>Suivez-nous</h4>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-tiktok"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
             </div>
             <div class="footer-col">
                 <h4>Liens</h4>
                 <ul>
                     <li><a href="#" data-page="home">Accueil</a></li>
                     <li><a href="#" data-page="shop">Boutique</a></li>
-                    <li><a href="#" data-page="homme">Homme</a></li>
-                    <li><a href="#" data-page="femme">Femme</a></li>
-                    <li><a href="#" data-page="chaussures">Chaussures</a></li>
-                    <li><a href="#" data-page="accessoires">Accessoires</a></li>
                     <li><a href="#" data-page="wholesale">Magasin</a></li>
                     <li><a href="#" data-page="blog">Shootings</a></li>
                     <li><a href="#" data-page="contact">Contact</a></li>
@@ -1021,7 +1000,7 @@
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2025 MerveilleShop. Tous droits réservés.</div>
+        <div class="footer-bottom">&copy; 2025 MedShop. Tous droits réservés.</div>
     </footer>
 
     <!-- ========== MODAL ========== -->
