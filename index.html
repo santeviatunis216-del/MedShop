@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>medShop | Luxe & Élégance</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <header class="navbar">
+        <div class="logo">Med<span>Shop</span></div>
+        <nav class="nav-links">
+            <a href="#" data-page="home" class="nav-link active">Accueil</a>
+            <a href="#" data-page="shop" class="nav-link">Boutique</a>
+            <a href="#" data-page="wholesale" class="nav-link">Magasin</a>
+            <a href="#" data-page="blog" class="nav-link">Shootings</a>
+            <a href="#" data-page="contact" class="nav-link">Contact</a>
+        </nav>
+        <div class="nav-icons">
+            <i class=" fas fa-search"></i>
+            <span class="cart-icon-wrapper" onclick="toggleCart()">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-badge" id="cartCount">0</span>
+            </span>
+        </div>
+    </header>
+
+    <!-- ========== BOUTON RETOUR ========== -->
+    <button id="backButton" class="back-button" onclick="goBack()" title="Retour" style="display:none;">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- ========== PAGES ========== -->
+    <main>
+
+        <!-- ===== PAGE ACCUEIL ===== -->
+        <section id="page-home" class="page active">
+            <div class="hero">
+                <div class="hero-text">
+                    <span class="hero-tag">✨ Nouvelle Collection</span>
+                    <h1>L'élégance <br/><span>dans chaque détail</span></h1>
+                    <p>Des pièces uniques pour ceux qui osent se démarquer.</p>
+                    <a href="#" data-page="shop" class="btn-primary">Explorer la boutique</a>
+                </div>
+                <div class="hero-image">
+                    <img src="images/A (4).jpg" alt="Fashion" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&h=600&fit=crop'" />
+                </div>
+            </div>
+
+            <div class="categories-preview">
+                <h2>Nos univers</h2>
+                <div class="category-grid">
+                    <div class="cat-card" data-page="homme"><span>🧑</span> Homme</div>
+                    <div class="cat-card" data-page="femme"><span>👩</span> Femme</div>
+                    <div class="cat-card" data-page="chaussures"><span>👟</span> Chaussures</div>
+                    <div class="cat-card" data-page="accessoires"><span>🕶️</span> Accessoires</div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <h2>⭐ Best-sellers</h2>
+                <a href="#" data-page="shop" class="view-all">Voir tout →</a>
+            </div>
+            <div class="products-grid" id="homeGrid">
+                <!-- Les 4 best-sellers sont affichés ici, mais pour simplifier on affiche les 4 premiers produits -->
+                <!-- On réutilise les cartes de la boutique, on les affiche avec JS ou on les duplique -->
+                <!-- Ici on va les générer via JS pour l'accueil, ou les écrire en dur -->
+                <!-- Je vais les générer via JS pour l'accueil car c'est plus simple, mais les images restent dans le HTML des cartes -->
+                <!-- En fait, pour respecter la demande "images dans le HTML", je vais écrire toutes les cartes en dur dans une section cachée et les cloner -->
+                <!-- Mais pour simplifier, je vais mettre les cartes directement dans la page boutique et les afficher selon les filtres -->
+                <!-- L'accueil affichera les 4 premiers produits via JS en les copiant depuis le DOM -->
+            </div>
+        </section>
+
+        <!-- ===== PAGE BOUTIQUE (TOUS LES PRODUITS) ===== -->
+        <section id="page-shop" class="page">
+            <div class="categories-preview">
+                <h2>Nos univers</h2>
+                <div class="category-grid">
+                    <div class="cat-card" data-page="homme"><span>🧑</span> Homme</div>
+                    <div class="cat-card" data-page="femme"><span>👩</span> Femme</div>
+                    <div class="cat-card" data-page="chaussures"><span>👟</span> Chaussures</div>
+                    <div class="cat-card" data-page="accessoires"><span>🕶️</span> Accessoires</div>
+                </div>
+            </div>
+            <div class="shop-layout">
+                <aside class="shop-sidebar">
+                    <h3>Filtres</h3>
+                    <div class="filter-group">
+                        <h4>Catégories</h4>
+                        <label><input type="checkbox" class="cat-filter" value="homme" checked /> Homme</label>
+                        <label><input type="checkbox" class="cat-filter" value="femme" checked /> Femme</label>
+                        <label><input type="checkbox" class="cat-filter" value="chaussures" checked /> Chaussures</label>
+                        <label><input type="checkbox" class="cat-filter" value="accessoires" checked /> Accessoires</label>
+                        <label><input type="checkbox" class="cat-filter" value="soldes" /> ⚡ En solde</label>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Prix max</h4>
+                        <input type="range" min="0" max="500" value="500" id="priceRange" />
+                        <span>Jusqu'à <span id="priceValue">500</span> TND</span>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Tailles</h4>
+                        <div class="size-chips">
+                            <span class="size-chip" data-size="XS">XS</span>
+                            <span class="size-chip active" data-size="S">S</span>
+                            <span class="size-chip" data-size="M">M</span>
+                            <span class="size-chip" data-size="L">L</span>
+                            <span class="size-chip" data-size="XL">XL</span>
+                            <span class="size-chip" data-size="XXL">XXL</span>
+                        </div>
+                    </div>
+                    <button class="btn-secondary" id="resetFilters">Réinitialiser</button>
+                </aside>
+
+                <div class="shop-content">
+                    <div class="shop-toolbar">
+                        <span id="resultCount">0 produits</span>
+                        <select id="sortSelect">
+                            <option value="default">Trier par</option>
+                            <option value="price-asc">Prix croissant</option>
+                            <option value="price-desc">Prix décroissant</option>
+                        </select>
+                    </div>
+                    <div class="products-grid" id="shopGrid">
+                        
+                        <!-- ========================================================== -->
+                        <!-- TOUTES LES CARTES PRODUITS SONT ICI EN DUR -->
+                        <!-- POUR CHANGER UNE IMAGE, MODIFIEZ LE src DE LA BALISE <img> -->
+                        <!-- ========================================================== -->
+
+                        <!-- === CHAUSSURES (1 à 6) === -->
+                        <div class="product-card" data-id="1" data-category="chaussures" data-price="389" data-discount="30" data-name="Nike Air Max 90 Futura">
+                            
+                            <img src="images/C (1).jpg" alt="Nike Air Max 90 Futura" onclick="openModal(1)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">chaussures</div>
+                                <div class="product-name" onclick="openModal(1)">Nike Air Max 90 Futura</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">272.30 TND</span>
+                                    <span class="old-price">389.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_1">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(1)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="2" data-category="chaussures" data-price="459" data-discount="20" data-name="Adidas Yeezy Boost 350">
+                            <span class="sale-tag">-20%</span>
+                            <img src="images/C (2).jpg" alt="Adidas Yeezy Boost 350" onclick="openModal(2)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">chaussures</div>
+                                <div class="product-name" onclick="openModal(2)">Adidas Yeezy Boost 350</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">367.20 TND</span>
+                                    <span class="old-price">459.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_2">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(2)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="3" data-category="chaussures" data-price="279" data-discount="0" data-name="New Balance 550 Blanc">
+                            <img src="images/C (3).jpg" alt="New Balance 550 Blanc" onclick="openModal(3)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">chaussures</div>
+                                <div class="product-name" onclick="openModal(3)">New Balance 550 Blanc</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">279.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_3">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(3)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="4" data-category="chaussures" data-price="499" data-discount="15" data-name="Jordan 1 High OG">
+                            <span class="sale-tag">-15%</span>
+                            <img src="images/C (10).jpg" alt="Jordan 1 High OG" onclick="openModal(4)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">chaussures</div>
+                                <div class="product-name" onclick="openModal(4)">Jordan 1 High OG</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">424.15 TND</span>
+                                    <span class="old-price">499.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_4">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(4)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="5" data-category="chaussures" data-price="149" data-discount="10" data-name="Converse Chuck 70">
+                            <span class="sale-tag">-10%</span>
+                            <img src="images/C (5).jpg" alt="Converse Chuck 70" onclick="openModal(5)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">chaussures</div>
+                                <div class="product-name" onclick="openModal(5)">Converse Chuck 70</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">134.10 TND</span>
+                                    <span class="old-price">149.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_5">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(5)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="product-card" data-id="5" data-category="chaussures" data-price="149" data-discount="10" data-name="Converse Chuck 70">
+                            <span class="sale-tag">-10%</span>
+                            <img src="images/C (6).jpg" alt="Converse Chuck 70" onclick="openModal(5)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">chaussures</div>
+                                <div class="product-name" onclick="openModal(5)">Converse Chuck 70</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">134.10 TND</span>
+                                    <span class="old-price">149.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_5">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(5)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="product-card" data-id="5" data-category="chaussures" data-price="149" data-discount="10" data-name="Converse Chuck 70">
+                            <span class="sale-tag">-10%</span>
+                            <img src="images/C (8).jpg" alt="Converse Chuck 70" onclick="openModal(5)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">chaussures</div>
+                                <div class="product-name" onclick="openModal(5)">Converse Chuck 70</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">134.10 TND</span>
+                                    <span class="old-price">149.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_5">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(5)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="6" data-category="chaussures" data-price="219" data-discount="0" data-name="Puma RS-X">
+                            <img src="images/C (9).jpg" alt="Puma RS-X" onclick="openModal(6)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">chaussures</div>
+                                <div class="product-name" onclick="openModal(6)">Puma RS-X</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">219.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_6">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(6)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <!-- === HOMME (7 à 14) === -->
+                        <div class="product-card" data-id="7" data-category="homme" data-price="159" data-discount="50" data-name="Hoodie Oversize Merveille">
+                            <span class="sale-tag">-50%</span>
+                            <img src="images/A (25).jpg" alt="Hoodie Oversize Merveille" onclick="openModal(7)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">homme</div>
+                                <div class="product-name" onclick="openModal(7)">Hoodie Oversize Merveille</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">79.50 TND</span>
+                                    <span class="old-price">159.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_7">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(7)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="8" data-category="homme" data-price="69" data-discount="25" data-name="T-Shirt Graphique Street">
+                            <span class="sale-tag">-25%</span>
+                            <img src="images/A (26).jpg" alt="T-Shirt Graphique Street" onclick="openModal(8)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">homme</div>
+                                <div class="product-name" onclick="openModal(8)">T-Shirt Graphique Street</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">51.75 TND</span>
+                                    <span class="old-price">69.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_8">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(8)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="9" data-category="homme" data-price="189" data-discount="0" data-name="Veste en Jean Vintage">
+                            <img src="images/A (27).jpg" alt="Veste en Jean Vintage" onclick="openModal(9)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">homme</div>
+                                <div class="product-name" onclick="openModal(9)">Veste en Jean Vintage</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">189.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_9">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(9)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="10" data-category="homme" data-price="129" data-discount="35" data-name="Pull Col Roulé Noir">
+                            <span class="sale-tag">-35%</span>
+                            <img src="images/A (28).jpg" alt="Pull Col Roulé Noir" onclick="openModal(10)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">homme</div>
+                                <div class="product-name" onclick="openModal(10)">Pull Col Roulé Noir</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">83.85 TND</span>
+                                    <span class="old-price">129.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_10">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(10)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="11" data-category="homme" data-price="99" data-discount="20" data-name="Short Cargo Militaire">
+                            <span class="sale-tag">-20%</span>
+                            <img src="images/A (29).jpg" alt="Short Cargo Militaire" onclick="openModal(11)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">homme</div>
+                                <div class="product-name" onclick="openModal(11)">Short Cargo Militaire</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">79.20 TND</span>
+                                    <span class="old-price">99.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_11">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(11)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="12" data-category="homme" data-price="89" data-discount="0" data-name="Chemise Hawaïenne">
+                            <img src="images/A (30).jpg" alt="Chemise Hawaïenne" onclick="openModal(12)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">homme</div>
+                                <div class="product-name" onclick="openModal(12)">Chemise Hawaïenne</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">89.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_12">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(12)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="13" data-category="homme" data-price="259" data-discount="15" data-name="Blazer Tweed">
+                            <span class="sale-tag">-15%</span>
+                            <img src="images/A (31).jpg" alt="Blazer Tweed" onclick="openModal(13)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">homme</div>
+                                <div class="product-name" onclick="openModal(13)">Blazer Tweed</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">220.15 TND</span>
+                                    <span class="old-price">259.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_13">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(13)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="14" data-category="homme" data-price="119" data-discount="0" data-name="Pantalon Chino Beige">
+                            <img src="images/A (32).jpg" alt="Pantalon Chino Beige" onclick="openModal(14)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">homme</div>
+                                <div class="product-name" onclick="openModal(14)">Pantalon Chino Beige</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">119.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_14">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(14)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <!-- === FEMME (15 à 22) === -->
+                        <div class="product-card" data-id="15" data-category="femme" data-price="189" data-discount="20" data-name="Pantalon Cargo Noir">
+                            <span class="sale-tag">-20%</span>
+                            <img src="images/A (2).jpg" alt="Pantalon Cargo Noir" onclick="openModal(15)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">femme</div>
+                                <div class="product-name" onclick="openModal(15)">Pantalon Cargo Noir</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">151.20 TND</span>
+                                    <span class="old-price">189.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_15">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(15)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="16" data-category="femme" data-price="159" data-discount="0" data-name="Jean Taille Haute">
+                            <img src="images/A (3).jpg" alt="Jean Taille Haute" onclick="openModal(16)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">femme</div>
+                                <div class="product-name" onclick="openModal(16)">Jean Taille Haute</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">159.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_16">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(16)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="17" data-category="femme" data-price="349" data-discount="30" data-name="Ensemble Blazer + Pantalon">
+                            <span class="sale-tag">-30%</span>
+                            <img src="images/A (5).jpg" alt="Ensemble Blazer + Pantalon" onclick="openModal(17)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">femme</div>
+                                <div class="product-name" onclick="openModal(17)">Ensemble Blazer + Pantalon</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">244.30 TND</span>
+                                    <span class="old-price">349.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_17">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(17)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="18" data-category="femme" data-price="229" data-discount="15" data-name="Robe Chemise Ceinturée">
+                            <span class="sale-tag">-15%</span>
+                            <img src="images/A (7).jpg" alt="Robe Chemise Ceinturée" onclick="openModal(18)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">femme</div>
+                                <div class="product-name" onclick="openModal(18)">Robe Chemise Ceinturée</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">194.65 TND</span>
+                                    <span class="old-price">229.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_18">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(18)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="19" data-category="femme" data-price="199" data-discount="10" data-name="Jupe Crayon Cuir">
+                            <span class="sale-tag">-10%</span>
+                            <img src="images/A ().jpg" alt="Jupe Crayon Cuir" onclick="openModal(19)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">femme</div>
+                                <div class="product-name" onclick="openModal(19)">Jupe Crayon Cuir</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">179.10 TND</span>
+                                    <span class="old-price">199.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_19">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(19)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="20" data-category="femme" data-price="139" data-discount="25" data-name="Blouse Soie Léopard">
+                            <span class="sale-tag">-25%</span>
+                            <img src="images/A (1).jpg" alt="Blouse Soie Léopard" onclick="openModal(20)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">femme</div>
+                                <div class="product-name" onclick="openModal(20)">Blouse Soie Léopard</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">104.25 TND</span>
+                                    <span class="old-price">139.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_20">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(20)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="21" data-category="femme" data-price="279" data-discount="0" data-name="Veste Tailleur Double">
+                            <img src="images/A (24).jpg" alt="Veste Tailleur Double" onclick="openModal(21)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">femme</div>
+                                <div class="product-name" onclick="openModal(21)">Veste Tailleur Double</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">279.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_21">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(21)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="22" data-category="femme" data-price="219" data-discount="20" data-name="Salopette Jean Oversize">
+                            <span class="sale-tag">-20%</span>
+                            <img src="images/A (21).jpg" alt="Salopette Jean Oversize" onclick="openModal(22)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">femme</div>
+                                <div class="product-name" onclick="openModal(22)">Salopette Jean Oversize</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">175.20 TND</span>
+                                    <span class="old-price">219.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_22">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(22)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <!-- === ACCESSOIRES (23 à 31) === -->
+                        <div class="product-card" data-id="23" data-category="accessoires" data-price="149" data-discount="15" data-name="Montre Connectée Or Noir">
+                            <span class="sale-tag">-15%</span>
+                            <img src="images/B (1).jpg" alt="Montre Connectée Or Noir" onclick="openModal(23)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">accessoires</div>
+                                <div class="product-name" onclick="openModal(23)">Montre Connectée Or Noir</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">126.65 TND</span>
+                                    <span class="old-price">149.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_23">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(23)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="24" data-category="accessoires" data-price="99" data-discount="40" data-name="Sac à Dos Urbain Cuir">
+                            <span class="sale-tag">-40%</span>
+                            <img src="images/B (2).jpg" alt="Sac à Dos Urbain Cuir" onclick="openModal(24)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">accessoires</div>
+                                <div class="product-name" onclick="openModal(24)">Sac à Dos Urbain Cuir</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">59.40 TND</span>
+                                    <span class="old-price">99.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_24">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(24)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="25" data-category="accessoires" data-price="85" data-discount="0" data-name="Lunettes Carrées Titanium">
+                            <img src="images/B (3).jpg" alt="Lunettes Carrées Titanium" onclick="openModal(25)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">accessoires</div>
+                                <div class="product-name" onclick="openModal(25)">Lunettes Carrées Titanium</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">85.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_25">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(25)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="26" data-category="accessoires" data-price="49" data-discount="10" data-name="Casquette Vintage Merveille">
+                            <span class="sale-tag">-10%</span>
+                            <img src="images/B (15).jpg" alt="Casquette Vintage Merveille" onclick="openModal(26)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">accessoires</div>
+                                <div class="product-name" onclick="openModal(26)">Casquette Vintage Merveille</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">44.10 TND</span>
+                                    <span class="old-price">49.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_26">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(26)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="27" data-category="accessoires" data-price="99" data-discount="10" data-name="Sac Tote Cuir Beige">
+                            <span class="sale-tag">-10%</span>
+                            <img src="images/B (5).jpg" alt="Sac Tote Cuir Beige" onclick="openModal(27)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">accessoires</div>
+                                <div class="product-name" onclick="openModal(27)">Sac Tote Cuir Beige</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">89.10 TND</span>
+                                    <span class="old-price">99.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_27">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(27)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="28" data-category="accessoires" data-price="49" data-discount="0" data-name="Ceinture Large Dorée">
+                            <img src="images/B (14).jpg" alt="Ceinture Large Dorée" onclick="openModal(28)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">accessoires</div>
+                                <div class="product-name" onclick="openModal(28)">Ceinture Large Dorée</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">49.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_28">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(28)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="29" data-category="accessoires" data-price="39" data-discount="0" data-name="Bonnet Cachemire">
+                            <img src="images/B (10).jpg" alt="Bonnet Cachemire" onclick="openModal(29)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">accessoires</div>
+                                <div class="product-name" onclick="openModal(29)">Bonnet Cachemire</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">39.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_29">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(29)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="30" data-category="accessoires" data-price="19" data-discount="5" data-name="Chaussettes Design">
+                            <span class="sale-tag">-5%</span>
+                            <img src="images/B (11).jpg" alt="Chaussettes Design" onclick="openModal(30)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">accessoires</div>
+                                <div class="product-name" onclick="openModal(30)">Chaussettes Design</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">18.05 TND</span>
+                                    <span class="old-price">19.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_30">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(30)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+
+                        <div class="product-card" data-id="31" data-category="accessoires" data-price="29" data-discount="0" data-name="Porte-clés Luxury">
+                            <img src="images/B (12).jpg" alt="Porte-clés Luxury" onclick="openModal(31)" onerror="this.src='https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&h=400&fit=crop'" />
+                            <div class="product-info">
+                                <div class="product-category">accessoires</div>
+                                <div class="product-name" onclick="openModal(31)">Porte-clés Luxury</div>
+                                <div class="price-wrapper">
+                                    <span class="product-price">29.00 TND</span>
+                                </div>
+                                <select class="size-select" id="size_31">
+                                    <option value="XS">XS</option><option value="S" selected>S</option>
+                                    <option value="M">M</option><option value="L">L</option>
+                                    <option value="XL">XL</option><option value="XXL">XXL</option>
+                                </select>
+                                <button class="add-to-cart" onclick="addToCart(31)"><i class="fas fa-plus"></i> Ajouter</button>
+                            </div>
+                        </div>
+                        <!-- ===== FIN DES CARTES PRODUITS ===== -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PAGE HOMME ===== -->
+        <section id="page-homme" class="page">
+            <div class="category-header">
+                <h2>🧑 Homme</h2>
+                <p>Collection masculine – Élégance et caractère</p>
+            </div>
+            <div class="products-grid" id="hommeGrid">
+                <!-- Les cartes seront filtrées par JS depuis la boutique -->
+            </div>
+        </section>
+
+        <!-- ===== PAGE FEMME ===== -->
+        <section id="page-femme" class="page">
+            <div class="category-header">
+                <h2>👩 Femme</h2>
+                <p>Collection féminine – Raffinement et modernité</p>
+            </div>
+            <div class="products-grid" id="femmeGrid">
+                <!-- Les cartes seront filtrées par JS depuis la boutique -->
+            </div>
+        </section>
+
+        <!-- ===== PAGE CHAUSSURES ===== -->
+        <section id="page-chaussures" class="page">
+            <div class="category-header">
+                <h2>👟 Chaussures</h2>
+                <p>Les sneakers les plus tendances du moment</p>
+            </div>
+            <div class="products-grid" id="chaussuresGrid">
+                <!-- Les cartes seront filtrées par JS depuis la boutique -->
+            </div>
+        </section>
+
+        <!-- ===== PAGE ACCESSOIRES ===== -->
+        <section id="page-accessoires" class="page">
+            <div class="category-header">
+                <h2>🕶️ Accessoires</h2>
+                <p>Les détails qui font la différence</p>
+            </div>
+            <div class="products-grid" id="accessoiresGrid">
+                <!-- Les cartes seront filtrées par JS depuis la boutique -->
+            </div>
+        </section>
+
+        <!-- ===== PAGE MAGASIN ===== -->
+        <section id="page-wholesale" class="page">
+            <div class="wholesale-container">
+                <div class="wholesale-header">
+                    <h2>🏪 Magasin en gros</h2>
+                    <p>Vous êtes professionnel ? Bénéficiez de tarifs préférentiels sur nos collections.</p>
+                </div>
+                <div class="wholesale-grid">
+                    <div class="wholesale-card">
+                        <h3>Tarifs dégressifs</h3>
+                        <div class="price-table">
+                            <div class="price-row"><span>Quantité</span><span>Réduction</span><span>Prix unitaire</span></div>
+                            <div class="price-row"><span>1 - 5</span><span>0%</span><span>Prix normal</span></div>
+                            <div class="price-row"><span>6 - 20</span><span>15%</span><span>15% de remise</span></div>
+                            <div class="price-row"><span>21 - 50</span><span>25%</span><span>25% de remise</span></div>
+                            <div class="price-row"><span>51 +</span><span>35%</span><span>35% de remise</span></div>
+                        </div>
+                        <p style="color:#888; font-size:0.85rem; margin-top:1rem;">* Remise appliquée sur l'ensemble de la commande.</p>
+                    </div>
+                    <div class="wholesale-card">
+                        <h3>Demander un devis</h3>
+                        <form id="wholesaleForm" onsubmit="sendWholesaleRequest(event)">
+                            <div class="form-group"><label>Nom complet</label><input type="text" placeholder="Votre nom" required /></div>
+                            <div class="form-group"><label>Email</label><input type="email" placeholder="votre@email.com" required /></div>
+                            <div class="form-group"><label>Téléphone</label><input type="tel" placeholder="+216 XX XXX XXX" /></div>
+                            <div class="form-group"><label>Nom de l'entreprise</label><input type="text" placeholder="Nom de votre société" /></div>
+                            <div class="form-group">
+                                <label>Produits souhaités</label>
+                                <select>
+                                    <option>Vêtements homme</option>
+                                    <option>Vêtements femme</option>
+                                    <option>Chaussures</option>
+                                    <option>Accessoires</option>
+                                    <option>Collection complète</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>Quantité approximative</label><input type="number" placeholder="Ex: 30" /></div>
+                            <div class="form-group"><label>Message</label><textarea rows="3" placeholder="Votre demande spécifique..."></textarea></div>
+                            <button type="submit" class="btn-primary" style="width:100%;"><i class="fas fa-paper-plane"></i> Envoyer la demande</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="wholesale-advantages">
+                    <h3>Pourquoi acheter en gros chez MerveilleShop ?</h3>
+                    <div class="advantages-grid">
+                        <div class="advantage-item"><i class="fas fa-truck"></i><h4>Livraison rapide</h4><p>Expédition sous 24h pour toute commande en stock.</p></div>
+                        <div class="advantage-item"><i class="fas fa-shield-alt"></i><h4>Qualité garantie</h4><p>Des pièces sélectionnées avec soin.</p></div>
+                        <div class="advantage-item"><i class="fas fa-handshake"></i><h4>Accompagnement</h4><p>Un conseiller dédié pour vos projets.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PAGE SHOOTINGS ===== -->
+        <section id="page-blog" class="page">
+            <div class="blog-header">
+                <h2>📸 Nos shootings</h2>
+                <p>Les coulisses de nos campagnes et vidéos exclusives</p>
+            </div>
+            <div class="blog-grid" id="fullBlogGrid">
+                <!-- Les articles du blog sont générés par JS mais les images sont dans le JS (blogData) -->
+                <!-- Pour respecter la demande "images dans le HTML", je vais les mettre en dur aussi -->
+                <!-- Je les mets en dur ci-dessous -->
+                <div class="blog-card">
+                    <div class="blog-video">
+                        <img src="images/a(32).png" alt="Shooting été 2025" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">15 Juin 2025</span>
+                        <h3>Shooting été 2025 - Making Of</h3>
+                        <p>Les coulisses de notre campagne estivale.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-video">
+                        <img src="images/a(33).jpg" alt="MerveilleShop x Artiste Urbain" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">10 Juin 2025</span>
+                        <h3>MerveilleShop x Artiste Urbain</h3>
+                        <p>Streetwear & art urbain en plein cœur de Tunis.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-video">
+                        <img src="images/a(34).png" alt="Essentiels Automne 2025" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">5 Juin 2025</span>
+                        <h3>Essentiels Automne 2025</h3>
+                        <p>Les pièces incontournables pour la rentrée.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-video">
+                        <img src="images/a(35).jpg" alt="Médina de Tunis" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">28 Mai 2025</span>
+                        <h3>Médina de Tunis - Session</h3>
+                        <p>Tradition et modernité se rencontrent.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-video">
+                        <img src="images/a(36).png" alt="Accessoires Studio" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">20 Mai 2025</span>
+                        <h3>Accessoires - Studio Session</h3>
+                        <p>Focus sur les détails qui font la différence.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-video">
+                        <img src="images/a(37).jpg" alt="Shooting Plage" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">15 Mai 2025</span>
+                        <h3>Shooting Plage - Collection</h3>
+                        <p>Le streetwear version balnéaire.</p>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-video">
+                        <img src="images/a(38).png" alt="Nouvelle Collection Hiver" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=300&fit=crop'" />
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-date">28 Avril 2025</span>
+                        <h3>Nouvelle Collection Hiver</h3>
+                        <p>L'élégance en mouvement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PAGE CONTACT ===== -->
+        <section id="page-contact" class="page">
+            <div class="contact-container">
+                <div class="contact-header">
+                    <h2>📬 Contactez-nous</h2>
+                    <p>Une question, une commande spéciale ? Nous sommes là pour vous.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-info-item"><i class="fas fa-map-marker-alt"></i><div><h4>Adresse</h4><p>Tunis, Tunisie</p></div></div>
+                        <div class="contact-info-item"><i class="fas fa-phone"></i><div><h4>Téléphone</h4><p>+216 51 555 603</p></div></div>
+                        <div class="contact-info-item"><i class="fas fa-envelope"></i><div><h4>Email</h4><p>info@merveilleshop.tn</p></div></div>
+                        <div class="contact-info-item"><i class="fab fa-whatsapp"></i><div><h4>WhatsApp</h4><p><a href="https://wa.me/21651555603" class="whatsapp-link">+216 51 555 603</a></p></div></div>
+                        <div class="contact-social">
+                            <h4>Suivez-nous</h4>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-tiktok"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Envoyez-nous un message</h3>
+                        <form id="contactForm" onsubmit="sendContactMessage(event)">
+                            <div class="form-group"><label>Nom complet</label><input type="text" id="contactName" placeholder="Votre nom" required /></div>
+                            <div class="form-group"><label>Email</label><input type="email" id="contactEmail" placeholder="votre@email.com" required /></div>
+                            <div class="form-group"><label>Téléphone</label><input type="tel" id="contactPhone" placeholder="+216 XX XXX XXX" /></div>
+                            <div class="form-group">
+                                <label>Sujet</label>
+                                <select id="contactSubject">
+                                    <option>Information sur un produit</option>
+                                    <option>Commande en ligne</option>
+                                    <option>Achat en gros</option>
+                                    <option>Livraison</option>
+                                    <option>Autre</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>Message</label><textarea id="contactMessage" rows="4" placeholder="Votre message..." required></textarea></div>
+                            <button type="submit" class="btn-primary" style="width:100%;"><i class="fas fa-paper-plane"></i> Envoyer le message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="logo">Merveille<span>Shop</span></div>
+                <p>Luxe & Élégance. Livraison dans toute la Tunisie.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liens</h4>
+                <ul>
+                    <li><a href="#" data-page="home">Accueil</a></li>
+                    <li><a href="#" data-page="shop">Boutique</a></li>
+                    <li><a href="#" data-page="homme">Homme</a></li>
+                    <li><a href="#" data-page="femme">Femme</a></li>
+                    <li><a href="#" data-page="chaussures">Chaussures</a></li>
+                    <li><a href="#" data-page="accessoires">Accessoires</a></li>
+                    <li><a href="#" data-page="wholesale">Magasin</a></li>
+                    <li><a href="#" data-page="blog">Shootings</a></li>
+                    <li><a href="#" data-page="contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +216 51 555 603</li>
+                    <li><i class="fas fa-envelope"></i> info@merveilleshop.tn</li>
+                    <li><a href="https://wa.me/21651555603" class="whatsapp-link"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2025 MerveilleShop. Tous droits réservés.</div>
+    </footer>
+
+    <!-- ========== MODAL ========== -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- ========== PANIER ========== -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sidebar">
+            <div class="cart-header">
+                <h2>🛍️ Panier</h2>
+                <button class="close-cart" onclick="toggleCart()">✕</button>
+            </div>
+            <div id="cartItemsContainer"></div>
+            <div id="cartFooter">
+                <div class="cart-total"><span>Total</span><span id="cartTotalPrice">0.00 TND</span></div>
+                <button class="checkout-btn" onclick="checkoutWhatsApp()"><i class="fab fa-whatsapp"></i> Commander</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
