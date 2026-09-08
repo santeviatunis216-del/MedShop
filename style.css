@@ -27,6 +27,24 @@ body {
     font-size: 1.8rem;
     font-weight: 800;
     color: #2D2D2D;
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    height: 48px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.logo img:hover {
+    transform: scale(1.05);
+}
+@media (max-width: 768px) {
+    .logo img {
+        height: 38px;
+    }
 }
 .logo span { color: #E07A5F; }
 .nav-links {
