@@ -267,7 +267,7 @@ body {
 .price-wrapper { display: flex; align-items: center; gap: 0.8rem; margin: 0.5rem 0; }
 .product-price { color: #6B2A3B; font-weight: 700; font-size: 1.2rem; }
 .old-price { color: #BBB; text-decoration: line-through; font-size: 0.9rem; }
-.size-select1 {
+.size-select {
     background: #F9F6F2;
     color: #2D2D2D;
     border: 1px solid #F4E4D0;
@@ -290,7 +290,6 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
-
 .add-to-cart:hover { background: #6B2A3B; transform: scale(1.02); }
 
 /* ---------- SHOP LAYOUT ---------- */
@@ -685,4 +684,5 @@ footer {
     .hero-text h1 { font-size: 1.8rem; }
     .category-grid { grid-template-columns: 1fr 1fr; }
 }
+
 
