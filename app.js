@@ -378,3 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navigateTo('home');
     updateCartUI();
 });
+    // Initialisation
+    navigateTo('home');
+    updateCartUI();
+});
