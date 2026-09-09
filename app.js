@@ -206,7 +206,7 @@ function openModal(id) {
                 <p style="color:#888; margin:1rem 0;">Pièce unique, qualité premium. Disponible en plusieurs tailles.</p>
                 <label>Taille : 
                     <select id="modal_size" style="background:#FFF; color:#333; padding:0.5rem; border:1px solid #D4A373; border-radius:8px;">
-                        ${['XS','S','M','L','XL','XXL'].map(s => `<option value="${s}">${s}</option>`).join('')}
+                        ${(product.category === 'chaussures' ? ['39','40','41','42','43','44','45','46'] : ['XS','S','M','L','XL','XXL']).map(s => `<option value="${s}">${s}</option>`).join('')}
                     </select>
                 </label>
                 <br/><br/>
