@@ -322,9 +322,40 @@ function sendContactMessage(e) {
 }
 
 // =========================================================
+// 8bis. MENU MOBILE (HAMBURGER)
+// =========================================================
+function closeMobileNav() {
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('navOverlay');
+    const btn = document.getElementById('hamburgerBtn');
+    navLinks?.classList.remove('mobile-open');
+    overlay?.classList.remove('open');
+    btn?.setAttribute('aria-expanded', 'false');
+    if (btn) btn.innerHTML = '<i class="fas fa-bars"></i>';
+}
+
+function toggleMobileNav() {
+    const navLinks = document.getElementById('navLinks');
+    const overlay = document.getElementById('navOverlay');
+    const btn = document.getElementById('hamburgerBtn');
+    if (!navLinks) return;
+    const isOpen = navLinks.classList.toggle('mobile-open');
+    overlay?.classList.toggle('open', isOpen);
+    btn?.setAttribute('aria-expanded', String(isOpen));
+    if (btn) btn.innerHTML = isOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+}
+
+// =========================================================
 // 9. INIT
 // =========================================================
 document.addEventListener('DOMContentLoaded', () => {
+    // Menu mobile
+    document.getElementById('hamburgerBtn')?.addEventListener('click', toggleMobileNav);
+    document.getElementById('navOverlay')?.addEventListener('click', closeMobileNav);
+    document.getElementById('navLinks')?.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', closeMobileNav);
+    });
+
     // Navigation
     document.querySelectorAll('[data-page]').forEach(el => {
         el.addEventListener('click', (e) => {
@@ -374,10 +405,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === this) toggleCart();
     });
 
-    // Initialisation
-    navigateTo('home');
-    updateCartUI();
-});
     // Initialisation
     navigateTo('home');
     updateCartUI();
