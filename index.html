@@ -73,7 +73,7 @@
     <!-- ========== NAVBAR ========== -->
     <header class="navbar">
         <div class="logo"><img src="logo (2).png" alt="MedShop - Boutique de mode en ligne en Tunisie" /></div>
-        <nav class="nav-links">
+        <nav class="nav-links" id="navLinks">
             <a href="#" data-page="home" class="nav-link active">Accueil</a>
             <a href="#" data-page="shop" class="nav-link">Boutique</a>
             <a href="#" data-page="wholesale" class="nav-link">Magasin</a>
@@ -86,8 +86,12 @@
                 <i class="fas fa-shopping-bag"></i>
                 <span class="cart-badge" id="cartCount">0</span>
             </span>
+            <button id="hamburgerBtn" class="hamburger-btn" aria-label="Ouvrir le menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
+    <div id="navOverlay" class="nav-overlay"></div>
 
     <!-- ========== BOUTON RETOUR ========== -->
     <button id="backButton" class="back-button" onclick="goBack()" title="Retour" style="display:none;">
@@ -1044,6 +1048,7 @@
     <script src="app.js"></script>
 </body>
 </html>
+
 
 
 
