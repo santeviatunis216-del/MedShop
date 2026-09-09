@@ -238,13 +238,21 @@ function closeModal() {
 // =========================================================
 // 7. NAVIGATION
 // =========================================================
-let pageHistory = ['home'];
+function getPageFromHash() {
+    const hash = location.hash.replace('#', '');
+    return hash || 'home';
+}
+
+let pageHistory = [getPageFromHash()];
 
 function navigateTo(page, options = {}) {
+    let targetPage = document.getElementById(`page-${page}`);
+    if (!targetPage) {
+        page = 'home';
+        targetPage = document.getElementById('page-home');
+    }
     document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
-    const targetPage = document.getElementById(`page-${page}`);
-    if (!targetPage) return; // page inconnue : on ne casse pas l'historique
     targetPage.classList.add('active');
     const link = document.querySelector(`.nav-link[data-page="${page}"]`);
     if (link) link.classList.add('active');
@@ -261,6 +269,14 @@ function navigateTo(page, options = {}) {
         }
     }
     updateBackButton();
+
+    // Met à jour l'URL (#boutique, #contact...) sauf si on répond à un clic retour/avant du navigateur
+    if (!options.fromPopState) {
+        const url = '#' + page;
+        if (location.hash !== url) {
+            history.pushState({ page }, '', url);
+        }
+    }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -405,7 +421,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === this) toggleCart();
     });
 
+    // Retour / avant du navigateur
+    window.addEventListener('popstate', (e) => {
+        const page = (e.state && e.state.page) || getPageFromHash();
+        navigateTo(page, { skipHistory: true, fromPopState: true });
+    });
+
     // Initialisation
-    navigateTo('home');
+    history.replaceState({ page: pageHistory[0] }, '', '#' + pageHistory[0]);
+    navigateTo(pageHistory[0], { skipHistory: true, fromPopState: true });
     updateCartUI();
 });
